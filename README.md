@@ -36,10 +36,6 @@ Smart-Helmet-Accident-Drowsiness-Detection/
 ├── Data/
 │   └── example_data.csv         # Sample event logs
 │
-├── Images/
-│   ├── Helmet_3D.png            # Helmet model/render
-│   └── Circuit_Diagram.jpg      # Circuit connections
-│
 └── README.md                    # Documentation
 
 ---
