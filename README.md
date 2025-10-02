@@ -14,7 +14,6 @@ The system is compact and can be easily integrated into any helmet without affec
 - Compact Design – Small device that can fit inside any helmet without modifications.  
 
 ---
-
 ## Project Folder Structure
 
 Smart-Helmet-Accident-Drowsiness-Detection/
