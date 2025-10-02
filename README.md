@@ -107,7 +107,7 @@ Feel free to fork this repository, open issues, or suggest improvements. Contrib
 
 ## Contact
 Created by Praveen  
-For queries or collaboration: *[add your email or LinkedIn link]*  
+For queries or collaboration: *prav9406@gmail.com*  
 
 ---
 
