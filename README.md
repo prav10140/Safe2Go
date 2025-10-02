@@ -19,29 +19,29 @@ The system is compact and can be easily integrated into any helmet without affec
 
 Smart-Helmet-Accident-Drowsiness-Detection/
 │
-├── Arduino/                 
-│   ├── SmartHelmet.ino        # Main Arduino code for ESP32
+├── Arduino/
+│   └── SmartHelmet.ino          # Main Arduino code for ESP32
 │
-├── Backend/                   
-│   ├── server.js              # Node.js backend server
-│   ├── routes/                # API routes for alerts
-│   └── package.json           # Dependencies
+├── Backend/
+│   ├── server.js                # Node.js backend server
+│   ├── routes/                  # API routes for alerts
+│   └── package.json             # Dependencies
 │
-├── Dashboard/                 
-│   ├── src/                   
-│   │   ├── App.js             # React main app
-│   │   ├── components/        # UI components
-│   │   └── data/              # Data handlers
-│   └── public/                # Static assets
+├── Dashboard/
+│   ├── src/
+│   │   ├── App.js               # React main app
+│   │   ├── components/          # UI components
+│   │   └── data/                # Data handlers
+│   └── public/                  # Static assets
 │
-├── Data/                      
-│   └── example_data.csv       # Sample event logs
+├── Data/
+│   └── example_data.csv         # Sample event logs
 │
-├── Images/                    
-│   ├── Helmet_3D.png          # Helmet model/render
-│   └── Circuit_Diagram.jpg    # Circuit connections
+├── Images/
+│   ├── Helmet_3D.png            # Helmet model/render
+│   └── Circuit_Diagram.jpg      # Circuit connections
 │
-└── README.md                  # Documentation
+└── README.md                    # Documentation
 
 ---
 
