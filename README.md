@@ -102,7 +102,7 @@ Feel free to fork this repository, open issues, or suggest improvements. Contrib
 ---
 
 ## Contact
-Created by Praveen  
+Created by Praveen & Sohit
 For queries or collaboration: *prav9406@gmail.com*  
 
 ---
