@@ -8,7 +8,7 @@ const api = axios.create({
 })
 
 export const alertService = {
-  // Get latest alerts and status
+
   async getLatestAlerts() {
     try {
       const response = await api.get("/alerts")
@@ -19,7 +19,7 @@ export const alertService = {
     }
   },
 
-  // Trigger manual SOS
+
   async triggerSOS() {
     try {
       const response = await api.post("/sos", {
@@ -33,7 +33,6 @@ export const alertService = {
     }
   },
 
-  // Send device data (for testing purposes)
   async sendDeviceData(data) {
     try {
       const response = await api.post("/device-data", data)
