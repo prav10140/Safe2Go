@@ -1,3 +1,6 @@
+
+//That was the feature 
+
 /*
   ESP32 Accident + Drowsiness Detection + Backend Alert
   - MPU6050 for accident detection
@@ -16,7 +19,7 @@
 
 MPU6050 mpu;
 TinyGPSPlus gps;
-HardwareSerial SerialGPS(1);  // UART1 for GPS
+HardwareSerial SerialGPS(1);  
 
 // --- Pin definitions ---
 const uint8_t BUZZER_PIN  = 25;
@@ -40,7 +43,7 @@ bool buzzerOn = false;
 bool buzzerBlinkMode = false;
 unsigned long lastSampleTime = 0;
 unsigned long lastBlinkToggle = 0;
-bool alertSent = false;  // flag to avoid repeated alerts
+bool alertSent = false;  
 
 // Button state
 bool buttonPressed = false;
@@ -91,7 +94,7 @@ void sendAlertToBackend(const String& type) {
   http.end();
 }
 
-// --- Button handlers ---
+// --- Button Working ---
 void handleButton() {
   bool pressedNow = (digitalRead(BUTTON_PIN) == LOW);
 
@@ -147,7 +150,8 @@ void handleButtonQuick() {
   }
 }
 
-// --- Setup ---
+
+
 void setup() {
   Serial.begin(115200);
   delay(200);
@@ -184,7 +188,7 @@ void setup() {
   Serial.print("Initial accel (g): "); Serial.println(lastAccelG, 3);
 }
 
-// --- Loop ---
+
 void loop() {
   // Read GPS
   while (SerialGPS.available() > 0) gps.encode(SerialGPS.read());
