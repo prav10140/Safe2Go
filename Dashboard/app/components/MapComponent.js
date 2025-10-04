@@ -5,7 +5,6 @@ import dynamic from "next/dynamic"
 import styled from "styled-components"
 import { useTheme } from "../contexts/ThemeContext"
 
-// Dynamically import map components to avoid SSR issues
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false })
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false })
 const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), { ssr: false })
@@ -69,7 +68,7 @@ const LoadingMessage = styled.div`
   background: ${(props) => props.theme.colors.surface};
 `
 
-// Default center (Delhi, India)
+// Default
 const defaultCenter = [28.6139, 77.209]
 
 const MapComponent = ({ location }) => {
@@ -80,7 +79,7 @@ const MapComponent = ({ location }) => {
   useEffect(() => {
     setIsClient(true)
 
-    // Load Leaflet CSS
+    // Leaflet
     if (typeof window !== "undefined") {
       import("leaflet/dist/leaflet.css")
       import("leaflet").then((L) => {
@@ -98,7 +97,6 @@ const MapComponent = ({ location }) => {
 
   const currentLocation = location ? [location.lat, location.lng] : defaultCenter
 
-  // Custom marker icon
   const createCustomIcon = () => {
     if (typeof window === "undefined") return null
 
