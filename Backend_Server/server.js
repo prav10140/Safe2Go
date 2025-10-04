@@ -6,7 +6,6 @@ require("dotenv").config()
 
 const app = express()
 
-// Middleware
 app.use(helmet())
 app.use(
   cors({
@@ -16,7 +15,6 @@ app.use(
 )
 app.use(express.json())
 
-// Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
