@@ -2,12 +2,12 @@ const express = require("express")
 const router  = express.Router()
 const { triggerSOS } = require("../services/sosService")
 
-// GET /api/sos — verify the endpoint is up
+// GET verify the endpoint is up
 router.get("/sos", (req, res) => {
   res.json({ message: "SOS endpoint is alive – use POST to trigger alerts" })
 })
 
-// POST /api/sos — Trigger manual SOS
+// POST Trigger manual SOS
 router.post("/sos", async (req, res) => {
   try {
     const { type = "manual", location } = req.body
