@@ -2,12 +2,11 @@ const express = require("express")
 const router  = express.Router()
 const { processDeviceData } = require("../services/deviceService")
 
-// POST /api/device-data — Receive data from smart helmet device
+// POST Receive data from smart helmet device
 router.post("/device-data", async (req, res) => {
   try {
     const { deviceId, timestamp, lat, lng, ...rest } = req.body
 
-    // Validate required fields
     const requiredFields = ["deviceId", "timestamp", "lat", "lng"]
     const missingFields = requiredFields.filter((f) => req.body[f] === undefined)
 
@@ -18,15 +17,13 @@ router.post("/device-data", async (req, res) => {
       })
     }
 
-    // Build a deviceData object
     const deviceData = {
       deviceId,
       timestamp,
       location: { lat: parseFloat(lat), lng: parseFloat(lng) },
-      ...rest, // any other sensor data you might send
+      ...rest, 
     }
 
-    // Process the device data (e.g., save to DB, trigger alerts)
     const result = await processDeviceData(deviceData)
 
     res.json({
