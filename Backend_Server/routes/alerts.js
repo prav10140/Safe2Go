@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const { getLatestAlerts, addAlert } = require("../services/alertService")
 
-// GET /api/alerts - Get latest alerts and status
+// Get latest alerts and status
 router.get("/alerts", async (req, res) => {
   try {
     const data = await getLatestAlerts()
@@ -13,7 +13,7 @@ router.get("/alerts", async (req, res) => {
   }
 })
 
-// POST /api/alerts - Add new alert (for testing)
+// POST Add new alert (for testing)
 router.post("/alerts", async (req, res) => {
   try {
     const { type, message, severity = "info" } = req.body
