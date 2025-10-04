@@ -1,13 +1,11 @@
 const admin = require("firebase-admin")
 
-// Initialize Firebase Admin SDK
+// Initialization of firebase
 const initializeFirebase = () => {
   try {
     // Check if Firebase is already initialized
     if (admin.apps.length === 0) {
-      // For Vercel deployment, use environment variables
       if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-        // Parse the service account from environment variable
         const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
 
         admin.initializeApp({
@@ -15,7 +13,6 @@ const initializeFirebase = () => {
           databaseURL: process.env.FIREBASE_DATABASE_URL,
         })
       } else {
-        // For local development, use service account file
         const serviceAccount = require("../firebase-service-account.json")
 
         admin.initializeApp({
