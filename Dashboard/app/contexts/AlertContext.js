@@ -28,7 +28,7 @@ export const AlertProvider = ({ children }) => {
   const [emergencyCountdown, setEmergencyCountdown] = useState(0)
   const [isFirebaseConnected, setIsFirebaseConnected] = useState(false)
 
-  // Real-time Firebase listeners
+  //listeners
   useEffect(() => {
     let alertsRef
     let statusRef
@@ -67,7 +67,7 @@ export const AlertProvider = ({ children }) => {
             if (statusData) {
               setCurrentStatus(statusData)
 
-              // Check for emergency conditions
+          
               if (statusData.accident && !isEmergency) {
                 triggerEmergency()
               }
@@ -80,12 +80,11 @@ export const AlertProvider = ({ children }) => {
       } catch (error) {
         console.error("Error setting up Firebase listeners:", error)
         setIsFirebaseConnected(false)
-        // Fallback to API polling if Firebase fails
         fallbackToApiPolling()
       }
     }
 
-    // Fallback to API polling if Firebase is not available
+    /
     const fallbackToApiPolling = () => {
       console.log("Falling back to API polling...")
       const pollAlerts = async () => {
@@ -94,7 +93,6 @@ export const AlertProvider = ({ children }) => {
           setAlerts(data.alerts || [])
           setCurrentStatus(data.status || currentStatus)
 
-          // Check for emergency conditions
           if (data.status?.accident && !isEmergency) {
             triggerEmergency()
           }
@@ -103,7 +101,7 @@ export const AlertProvider = ({ children }) => {
         }
       }
 
-      pollAlerts() // Initial fetch
+      pollAlerts() 
       const interval = setInterval(pollAlerts, 5000)
 
       return () => clearInterval(interval)
@@ -111,14 +109,12 @@ export const AlertProvider = ({ children }) => {
 
     setupFirebaseListeners()
 
-    // Cleanup function
     return () => {
       if (alertsRef) off(alertsRef)
       if (statusRef) off(statusRef)
     }
   }, [isEmergency])
 
-  // Emergency countdown timer
   useEffect(() => {
     let timer
     if (emergencyCountdown > 0) {
@@ -126,7 +122,6 @@ export const AlertProvider = ({ children }) => {
         setEmergencyCountdown(emergencyCountdown - 1)
       }, 1000)
     } else if (emergencyCountdown === 0 && isEmergency) {
-      // Auto-trigger SOS after countdown
       handleSOS()
     }
 
@@ -149,7 +144,6 @@ export const AlertProvider = ({ children }) => {
       setIsEmergency(false)
       setEmergencyCountdown(0)
 
-      // SOS alert will be automatically added via Firebase listener
       console.log("SOS alert triggered successfully")
     } catch (error) {
       console.error("Failed to trigger SOS:", error)
